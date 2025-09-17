@@ -5,6 +5,11 @@ from langchain_google_genai import  ChatGoogleGenerativeAI
 from app.prompts.prompt_library import PROMPT_REGISTRY
 from app.telemetry.custom_exception import customException
 from app.telemetry.custom_logger import CustomLogger
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+os.environ["GOOGLE_API_KEY"]=os.getenv("GOOGLE_API_KEY")
 
 log=CustomLogger().get_logger(__name__)
 
