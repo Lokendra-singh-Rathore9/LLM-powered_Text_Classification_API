@@ -13,11 +13,19 @@ A content moderation service that classifies user-generated text into categories
 ## 🛠️ Setup & Installation
 
 ```bash
+# 1. Clone the repo
 git clone <repository-url>
 cd llm-powered-text-classification-api
-conda create -p myenv python=3.10.0
-conda activate myenv/
-pip install -r requirements.txt
+
+# 2. Create & activate a virtual environment with Python 3.10
+uv venv --python=3.10 .venv
+source .venv/bin/activate   # on Linux/Mac
+# or
+.venv\Scripts\activate      # on Windows PowerShell
+
+# 3. Install dependencies from requirements.txt
+uv pip install -r requirements.txt
+
 ```
 
 Create `.env` file:
