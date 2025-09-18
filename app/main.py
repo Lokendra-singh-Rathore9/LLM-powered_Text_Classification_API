@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI, HTTPException
 from app.services.classifier import TextClassifier
 from app.telemetry.telemetry import TelemetryService
+from eval.evalution import ModelEvaluator
 from pydantic import BaseModel, Field
 from typing import Optional, Dict, Any
 
@@ -9,9 +10,11 @@ class ClassifyRequest(BaseModel):
     text: str
 
 class ClassifyResponse(BaseModel):
-    class_: str = Field(alias="class")
+    class_: str = Field(..., alias="class") 
     prompt_used: str
     latency_ms: int
+    class Config:
+        populate_by_name = True
 
 class FeedbackRequest(BaseModel):
     text: str
@@ -32,13 +35,13 @@ app = FastAPI(title="LLM Text Classification API", version="1.0.0")
 @app.post("/classify", response_model=ClassifyResponse)
 async def classify_text(request: ClassifyRequest):
     try:
-        classification, confidence, prompt_used, latency_ms = await classifier.classify(request.text)
+        classification, prompt_used, latency_ms = await classifier.classify(request.text)
         
         # Record metrics
         telemetry.record_classification(classification, latency_ms)
         
         return ClassifyResponse(
-            class_=classification,
+            **{"class": classification},
             prompt_used=prompt_used,
             latency_ms=latency_ms
         )
@@ -54,9 +57,16 @@ async def submit_feedback(request: FeedbackRequest):
 async def get_metrics():
     return telemetry.get_metrics()
 
+@app.get("/evaluation")
+async def get_evaluation():
+    model_evaluator = ModelEvaluator()  # Create instance (no await needed)
+    result = await model_evaluator.run_full_evaluation()  # Await the async method
+    return result
+
 @app.get("/healthz")
 async def health_check():
     return {"status": "healthy"}
+
 
 if __name__ == "__main__":
     

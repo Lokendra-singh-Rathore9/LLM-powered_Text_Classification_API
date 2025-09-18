@@ -1,4 +1,5 @@
 import json
+import os
 from typing import Dict, List
 from datetime import datetime
 
@@ -24,8 +25,28 @@ class TelemetryService:
             "correct": correct,
             "timestamp": datetime.now().isoformat()
         }
-        self.feedback_data.append(feedback)
         
+        self.feedback_data.append(feedback)
+        feedback_file = r"app\\data\\feedback_data.json"
+
+
+        # If file exists, load old data first
+        if os.path.exists(feedback_file):
+            with open(feedback_file, "r") as f:
+                try:
+                    existing_data = json.load(f)
+                except json.JSONDecodeError:
+                    existing_data = []
+        else:
+            existing_data = []
+
+        # Append new feedback
+        existing_data.append(feedback)
+        print("executed")
+        # Write back to file
+        with open(feedback_file, "w") as f:
+            json.dump(existing_data, f, indent=4)
+            
         # Update feedback counts
         if predicted == correct:
             self.metrics["feedback_counts"]["positive"] += 1
