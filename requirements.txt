@@ -11,4 +11,5 @@ uvicorn
 scikit-learn
 structlog
 streamlit
+pytest
 -e .
