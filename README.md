@@ -118,5 +118,5 @@ llm-powered-text-classification-api/
 ## 🧪 Testing
 
 ```bash
-pytest tests/
+python tests\tests.py
 ```
