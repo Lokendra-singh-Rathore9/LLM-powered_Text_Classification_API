@@ -15,6 +15,8 @@ A content moderation service that classifies user-generated text into categories
 ```bash
 git clone <repository-url>
 cd llm-powered-text-classification-api
+conda create -p myenv python=3.10.0
+conda activate myenv/
 pip install -r requirements.txt
 ```
 
