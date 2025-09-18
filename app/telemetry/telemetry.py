@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Dict, List
+from typing import Dict
 from datetime import datetime
 
 class TelemetryService:

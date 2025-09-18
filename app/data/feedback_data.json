@@ -1,0 +1,14 @@
+[
+    {
+        "text": "test message",
+        "predicted": "safe",
+        "correct": "spam",
+        "timestamp": "2025-09-18T13:44:37.465465"
+    },
+    {
+        "text": "test message",
+        "predicted": "safe",
+        "correct": "spam",
+        "timestamp": "2025-09-18T13:46:58.673326"
+    }
+]

@@ -2,9 +2,9 @@ import uvicorn
 from fastapi import FastAPI, HTTPException
 from app.services.classifier import TextClassifier
 from app.telemetry.telemetry import TelemetryService
-from eval.evalution import ModelEvaluator
+from app.eval.evalution import ModelEvaluator
 from pydantic import BaseModel, Field
-from typing import Optional, Dict, Any
+from typing import  Dict
 
 class ClassifyRequest(BaseModel):
     text: str
