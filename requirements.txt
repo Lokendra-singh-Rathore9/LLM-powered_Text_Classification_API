@@ -1,15 +1,11 @@
-langchain
-langchain-community
-langchain-core
-
-langchain-google-genai
-
-fastapi
-uvicorn
-
-
-scikit-learn
-structlog
-streamlit
-pytest
+langchain==0.3.27
+langchain-community==0.3.29
+langchain-core==0.3.76
+langchain-google-genai==2.1.12
+fastapi==0.116.2
+uvicorn==0.35.0
+scikit-learn==1.7.2
+structlog==25.4.0
+streamlit==1.49.1
+pytest==8.4.2
 -e .
