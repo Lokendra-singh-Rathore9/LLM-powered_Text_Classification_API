@@ -6,7 +6,7 @@ A content moderation service that classifies user-generated text into categories
 
 Check out our demo video for the LLM-powered Text Classification API:
 
-[![Watch the demo](https://img.youtube.com/vi/jhbk7divP3A/hqdefault.jpg)](https://youtu.be/jhbk7divP3A)
+https://github.com/user-attachments/assets/cf8efe53-e4ae-444f-b3f7-d7568adbaf90
 
 > Click the image above or [watch on YouTube](https://youtu.be/jhbk7divP3A).
 
