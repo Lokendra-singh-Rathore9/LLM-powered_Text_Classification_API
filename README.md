@@ -8,7 +8,9 @@ Check out our demo video for the LLM-powered Text Classification API:
 
 [![Watch the demo](https://img.youtube.com/vi/jhbk7divP3A/hqdefault.jpg)](https://youtu.be/jhbk7divP3A)
 
-Click the image above or [watch on YouTube](https://youtu.be/jhbk7divP3A).
+> Click the image above or [watch on YouTube](https://youtu.be/jhbk7divP3A).
+
+---
 ## 🚀 Features
 
 - Text classification into toxic/spam/safe categories
